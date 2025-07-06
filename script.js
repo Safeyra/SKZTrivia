@@ -244,6 +244,11 @@ function switchScreen(id) {
   document.getElementById(id).classList.add("active");
 }
 
+function saveGame() {
+  localStorage.setItem("triviaGachaPoints", points);
+  localStorage.setItem("triviaGachaCollection", JSON.stringify(collection));
+}
+
 rarityFilter.onchange = updateCollectionDisplay;
 characterFilter.onchange = updateCollectionDisplay;
 
