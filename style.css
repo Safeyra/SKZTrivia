@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(145deg, #d8e3ff, #f0f4ff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #3f4a6b;
+}
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+.active {
+  display: block;
+}
+button {
+  background: #4a66ff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #334ad3;
+}
+#scoreboard {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+#question {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+#answers button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  background: #e1e7ff;
+  color: #333;
+}
+#answers button:hover {
+  background: #c0ceff;
+}
+#gacha-result,
+#collection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.gacha-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 140px;
+  text-align: center;
+  padding: 0.75rem;
+  animation: pop 0.3s ease-out;
+  position: relative;
+  border: 2px solid transparent;
+}
+.gacha-card img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+.gacha-card .name {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+.stars {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #ffbf00;
+}
+.plus-one {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #f00;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  animation: bounce 0.5s ease-out;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.common {
+  color: #888;
+}
+.rare {
+  color: #3a8dd5;
+}
+.ultra-rare {
+  color: #c636d6;
+  text-shadow: 0 0 4px #ffb3ff;
+  animation: sparkle 1s infinite alternate;
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes sparkle {
+  from {
+    box-shadow: 0 0 10px #ffb3ff;
+  }
+  to {
+    box-shadow: 0 0 20px #ffb3ff;
+  }
+}
+.glow-1 {
+  border-color: gold;
+}
+.glow-2 {
+  border-color: deeppink;
+  box-shadow: 0 0 12px deeppink;
+}
+.glow-3 {
+  border-color: cyan;
+  box-shadow: 0 0 15px cyan;
+}
+.sparkles {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 130px;
+  height: 130px;
+  pointer-events: none;
+  background: url("https://i.imgur.com/O2Xb2Io.gif") no-repeat center center;
+  background-size: contain;
+  animation: sparkle 1.5s infinite alternate;
+}
