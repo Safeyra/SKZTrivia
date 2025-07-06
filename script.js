@@ -48,38 +48,173 @@ const trivia = [
 
 
 const gachaPool = [
-  // Each character has 3 rarities with different images
-  { name: "Bang Chan", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Bang+Chan+Common" },
-  { name: "Bang Chan", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Bang+Chan+Rare" },
-  { name: "Bang Chan", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Bang+Chan+Ultra+Rare" },
+  // Bang Chan
+  { name: "Bang Chan", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=Chan+Common+I+Am+NOT" },
+  { name: "Bang Chan", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=Chan+Rare+I+Am+NOT" },
+  { name: "Bang Chan", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=Chan+UltraRare+I+Am+NOT" },
 
-  { name: "Lee Know", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Lee+Know+Common" },
-  { name: "Lee Know", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Lee+Know+Rare" },
-  { name: "Lee Know", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Lee+Know+Ultra+Rare" },
+  { name: "Bang Chan", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=Chan+Common+MIROH" },
+  { name: "Bang Chan", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=Chan+Rare+MIROH" },
+  { name: "Bang Chan", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=Chan+UltraRare+MIROH" },
 
-  { name: "Changbin", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Changbin+Common" },
-  { name: "Changbin", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Changbin+Rare" },
-  { name: "Changbin", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Changbin+Ultra+Rare" },
+  { name: "Bang Chan", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=Chan+Common+GO+LIVE" },
+  { name: "Bang Chan", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=Chan+Rare+GO+LIVE" },
+  { name: "Bang Chan", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=Chan+UltraRare+GO+LIVE" },
 
-  { name: "Hyunjin", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Hyunjin+Common" },
-  { name: "Hyunjin", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Hyunjin+Rare" },
-  { name: "Hyunjin", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Hyunjin+Ultra+Rare" },
+  { name: "Bang Chan", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=Chan+Common+IN+LIFE" },
+  { name: "Bang Chan", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=Chan+Rare+IN+LIFE" },
+  { name: "Bang Chan", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=Chan+UltraRare+IN+LIFE" },
 
-  { name: "Han", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Han+Common" },
-  { name: "Han", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Han+Rare" },
-  { name: "Han", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Han+Ultra+Rare" },
+  { name: "Bang Chan", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=Chan+Common+THE+SOUND" },
+  { name: "Bang Chan", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=Chan+Rare+THE+SOUND" },
+  { name: "Bang Chan", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=Chan+UltraRare+THE+SOUND" },
 
-  { name: "Felix", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Felix+Common" },
-  { name: "Felix", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Felix+Rare" },
-  { name: "Felix", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Felix+Ultra+Rare" },
+  // Lee Know
+  { name: "Lee Know", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=LeeKnow+Common+I+Am+NOT" },
+  { name: "Lee Know", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=LeeKnow+Rare+I+Am+NOT" },
+  { name: "Lee Know", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=LeeKnow+UltraRare+I+Am+NOT" },
 
-  { name: "Seungmin", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=Seungmin+Common" },
-  { name: "Seungmin", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=Seungmin+Rare" },
-  { name: "Seungmin", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=Seungmin+Ultra+Rare" },
+  { name: "Lee Know", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=LeeKnow+Common+MIROH" },
+  { name: "Lee Know", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=LeeKnow+Rare+MIROH" },
+  { name: "Lee Know", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=LeeKnow+UltraRare+MIROH" },
 
-  { name: "I.N", rarity: "Common", weight: 10, image: "https://via.placeholder.com/200x200.png?text=I.N+Common" },
-  { name: "I.N", rarity: "Rare", weight: 7, image: "https://via.placeholder.com/200x200.png?text=I.N+Rare" },
-  { name: "I.N", rarity: "Ultra Rare", weight: 3, image: "https://via.placeholder.com/200x200.png?text=I.N+Ultra+Rare" }
+  { name: "Lee Know", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=LeeKnow+Common+GO+LIVE" },
+  { name: "Lee Know", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=LeeKnow+Rare+GO+LIVE" },
+  { name: "Lee Know", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=LeeKnow+UltraRare+GO+LIVE" },
+
+  { name: "Lee Know", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=LeeKnow+Common+IN+LIFE" },
+  { name: "Lee Know", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=LeeKnow+Rare+IN+LIFE" },
+  { name: "Lee Know", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=LeeKnow+UltraRare+IN+LIFE" },
+
+  { name: "Lee Know", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=LeeKnow+Common+THE+SOUND" },
+  { name: "Lee Know", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=LeeKnow+Rare+THE+SOUND" },
+  { name: "Lee Know", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=LeeKnow+UltraRare+THE+SOUND" },
+
+  // Changbin
+  { name: "Changbin", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=Changbin+Common+I+Am+NOT" },
+  { name: "Changbin", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=Changbin+Rare+I+Am+NOT" },
+  { name: "Changbin", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=Changbin+UltraRare+I+Am+NOT" },
+
+  { name: "Changbin", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=Changbin+Common+MIROH" },
+  { name: "Changbin", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=Changbin+Rare+MIROH" },
+  { name: "Changbin", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=Changbin+UltraRare+MIROH" },
+
+  { name: "Changbin", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=Changbin+Common+GO+LIVE" },
+  { name: "Changbin", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=Changbin+Rare+GO+LIVE" },
+  { name: "Changbin", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=Changbin+UltraRare+GO+LIVE" },
+
+  { name: "Changbin", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=Changbin+Common+IN+LIFE" },
+  { name: "Changbin", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=Changbin+Rare+IN+LIFE" },
+  { name: "Changbin", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=Changbin+UltraRare+IN+LIFE" },
+
+  { name: "Changbin", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=Changbin+Common+THE+SOUND" },
+  { name: "Changbin", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=Changbin+Rare+THE+SOUND" },
+  { name: "Changbin", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=Changbin+UltraRare+THE+SOUND" },
+
+  // Hyunjin
+  { name: "Hyunjin", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=Hyunjin+Common+I+Am+NOT" },
+  { name: "Hyunjin", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=Hyunjin+Rare+I+Am+NOT" },
+  { name: "Hyunjin", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=Hyunjin+UltraRare+I+Am+NOT" },
+
+  { name: "Hyunjin", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=Hyunjin+Common+MIROH" },
+  { name: "Hyunjin", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=Hyunjin+Rare+MIROH" },
+  { name: "Hyunjin", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=Hyunjin+UltraRare+MIROH" },
+
+  { name: "Hyunjin", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=Hyunjin+Common+GO+LIVE" },
+  { name: "Hyunjin", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=Hyunjin+Rare+GO+LIVE" },
+  { name: "Hyunjin", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=Hyunjin+UltraRare+GO+LIVE" },
+
+  { name: "Hyunjin", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=Hyunjin+Common+IN+LIFE" },
+  { name: "Hyunjin", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=Hyunjin+Rare+IN+LIFE" },
+  { name: "Hyunjin", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=Hyunjin+UltraRare+IN+LIFE" },
+
+  { name: "Hyunjin", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=Hyunjin+Common+THE+SOUND" },
+  { name: "Hyunjin", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=Hyunjin+Rare+THE+SOUND" },
+  { name: "Hyunjin", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=Hyunjin+UltraRare+THE+SOUND" },
+
+  // Han
+  { name: "Han", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=Han+Common+I+Am+NOT" },
+  { name: "Han", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=Han+Rare+I+Am+NOT" },
+  { name: "Han", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=Han+UltraRare+I+Am+NOT" },
+
+  { name: "Han", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=Han+Common+MIROH" },
+  { name: "Han", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=Han+Rare+MIROH" },
+  { name: "Han", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=Han+UltraRare+MIROH" },
+
+  { name: "Han", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=Han+Common+GO+LIVE" },
+  { name: "Han", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=Han+Rare+GO+LIVE" },
+  { name: "Han", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=Han+UltraRare+GO+LIVE" },
+
+  { name: "Han", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=Han+Common+IN+LIFE" },
+  { name: "Han", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=Han+Rare+IN+LIFE" },
+  { name: "Han", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=Han+UltraRare+IN+LIFE" },
+
+  { name: "Han", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=Han+Common+THE+SOUND" },
+  { name: "Han", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=Han+Rare+THE+SOUND" },
+  { name: "Han", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=Han+UltraRare+THE+SOUND" },
+
+  // Felix
+  { name: "Felix", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=Felix+Common+I+Am+NOT" },
+  { name: "Felix", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=Felix+Rare+I+Am+NOT" },
+  { name: "Felix", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=Felix+UltraRare+I+Am+NOT" },
+
+  { name: "Felix", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=Felix+Common+MIROH" },
+  { name: "Felix", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=Felix+Rare+MIROH" },
+  { name: "Felix", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=Felix+UltraRare+MIROH" },
+
+  { name: "Felix", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=Felix+Common+GO+LIVE" },
+  { name: "Felix", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=Felix+Rare+GO+LIVE" },
+  { name: "Felix", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=Felix+UltraRare+GO+LIVE" },
+
+  { name: "Felix", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=Felix+Common+IN+LIFE" },
+  { name: "Felix", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=Felix+Rare+IN+LIFE" },
+  { name: "Felix", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=Felix+UltraRare+IN+LIFE" },
+
+  { name: "Felix", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=Felix+Common+THE+SOUND" },
+  { name: "Felix", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=Felix+Rare+THE+SOUND" },
+  { name: "Felix", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=Felix+UltraRare+THE+SOUND" },
+
+  // Seungmin
+  { name: "Seungmin", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=Seungmin+Common+I+Am+NOT" },
+  { name: "Seungmin", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=Seungmin+Rare+I+Am+NOT" },
+  { name: "Seungmin", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=Seungmin+UltraRare+I+Am+NOT" },
+
+  { name: "Seungmin", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=Seungmin+Common+MIROH" },
+  { name: "Seungmin", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=Seungmin+Rare+MIROH" },
+  { name: "Seungmin", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=Seungmin+UltraRare+MIROH" },
+
+  { name: "Seungmin", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=Seungmin+Common+GO+LIVE" },
+  { name: "Seungmin", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=Seungmin+Rare+GO+LIVE" },
+  { name: "Seungmin", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=Seungmin+UltraRare+GO+LIVE" },
+
+  { name: "Seungmin", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=Seungmin+Common+IN+LIFE" },
+  { name: "Seungmin", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=Seungmin+Rare+IN+LIFE" },
+  { name: "Seungmin", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=Seungmin+UltraRare+IN+LIFE" },
+
+  { name: "Seungmin", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=Seungmin+Common+THE+SOUND" },
+  { name: "Seungmin", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=Seungmin+Rare+THE+SOUND" },
+  { name: "Seungmin", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=Seungmin+UltraRare+THE+SOUND" },
+
+  // I.N
+  { name: "I.N", rarity: "Common", albumEra: "I Am NOT", weight: 10, image: "https://via.placeholder.com/200?text=IN+Common+I+Am+NOT" },
+  { name: "I.N", rarity: "Rare", albumEra: "I Am NOT", weight: 5, image: "https://via.placeholder.com/200?text=IN+Rare+I+Am+NOT" },
+  { name: "I.N", rarity: "Ultra Rare", albumEra: "I Am NOT", weight: 2, image: "https://via.placeholder.com/200?text=IN+UltraRare+I+Am+NOT" },
+
+  { name: "I.N", rarity: "Common", albumEra: "Clé 1: MIROH", weight: 10, image: "https://via.placeholder.com/200?text=IN+Common+MIROH" },
+  { name: "I.N", rarity: "Rare", albumEra: "Clé 1: MIROH", weight: 5, image: "https://via.placeholder.com/200?text=IN+Rare+MIROH" },
+  { name: "I.N", rarity: "Ultra Rare", albumEra: "Clé 1: MIROH", weight: 2, image: "https://via.placeholder.com/200?text=IN+UltraRare+MIROH" },
+
+  { name: "I.N", rarity: "Common", albumEra: "GO LIVE", weight: 10, image: "https://via.placeholder.com/200?text=IN+Common+GO+LIVE" },
+  { name: "I.N", rarity: "Rare", albumEra: "GO LIVE", weight: 5, image: "https://via.placeholder.com/200?text=IN+Rare+GO+LIVE" },
+  { name: "I.N", rarity: "Ultra Rare", albumEra: "GO LIVE", weight: 2, image: "https://via.placeholder.com/200?text=IN+UltraRare+GO+LIVE" },
+
+  { name: "I.N", rarity: "Common", albumEra: "IN LIFE", weight: 10, image: "https://via.placeholder.com/200?text=IN+Common+IN+LIFE" },
+  { name: "I.N", rarity: "Rare", albumEra: "IN LIFE", weight: 5, image: "https://via.placeholder.com/200?text=IN+Rare+IN+LIFE" },
+  { name: "I.N", rarity: "Ultra Rare", albumEra: "IN LIFE", weight: 2, image: "https://via.placeholder.com/200?text=IN+UltraRare+IN+LIFE" },
+
+  { name: "I.N", rarity: "Common", albumEra: "THE SOUND", weight: 10, image: "https://via.placeholder.com/200?text=IN+Common+THE+SOUND" },
+  { name: "I.N", rarity: "Rare", albumEra: "THE SOUND", weight: 5, image: "https://via.placeholder.com/200?text=IN+Rare+THE+SOUND" },
+  { name: "I.N", rarity: "Ultra Rare", albumEra: "THE SOUND", weight: 2, image: "https://via.placeholder.com/200?text=IN+UltraRare+THE+SOUND" },
 ];
 
 let currentQuestion = 0;
@@ -95,6 +230,7 @@ const pullSound = document.getElementById("pull-sound");
 
 const rarityFilter = document.getElementById("rarity-filter");
 const characterFilter = document.getElementById("character-filter");
+const albumFilter = document.getElementById("album-filter");
 
 function showQuestion() {
   const q = trivia[currentQuestion];
@@ -157,12 +293,14 @@ function addToCollection(pull) {
 function updateCollectionDisplay() {
   const rarity = rarityFilter.value;
   const character = characterFilter.value;
+  const albumEra = albumFilter.value;
   collectionDiv.innerHTML = "";
   collection
     .filter(item => {
       const rarityMatch = rarity === "all" || item.rarity === rarity;
       const characterMatch = character === "all" || item.name === character;
-      return rarityMatch && characterMatch;
+      const albumMatch = albumEra === "all" || item.albumEra === albumEra;
+      return rarityMatch && characterMatch && albumMatch;
     })
     .forEach(item => {
       const card = document.createElement("div");
@@ -176,7 +314,7 @@ function updateCollectionDisplay() {
       img.src = item.image;
       const name = document.createElement("div");
       name.className = item.rarity.toLowerCase().replace(/ /g, "-");
-      name.textContent = `${item.rarity}: ${item.name}`;
+      name.textContent = `${item.rarity}: ${item.name} (${item.albumEra})`;
       name.classList.add("name");
       if (item.rarity === "Common") name.classList.add("common");
       else if (item.rarity === "Rare") name.classList.add("rare");
@@ -251,6 +389,7 @@ function saveGame() {
 
 rarityFilter.onchange = updateCollectionDisplay;
 characterFilter.onchange = updateCollectionDisplay;
+albumFilter.onchange = updateCollectionDisplay;
 
 function loadGame() {
   const savedPoints = localStorage.getItem("triviaGachaPoints");
