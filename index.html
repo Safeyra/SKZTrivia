@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trivia Gacha Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(145deg, #d8e3ff, #f0f4ff);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #3f4a6b; }
+    .screen {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .active { display: block; }
+    button {
+      background: #4a66ff;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #334ad3; }
+    #scoreboard { font-size: 1.2rem; margin-bottom: 1rem; }
+    #question { font-size: 1.25rem; margin-bottom: 1rem; }
+    #answers button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      background: #e1e7ff;
+      color: #333;
+    }
+    #answers button:hover { background: #c0ceff; }
+    #gacha-result, #collection { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
+    .gacha-card {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 140px;
+      text-align: center;
+      padding: 0.75rem;
+      animation: pop 0.3s ease-out;
+      position: relative;
+      border: 2px solid transparent;
+      overflow: visible;
+    }
+    .glow-1 {
+      border-color: gold;
+      animation: pulse-gold 1.5s infinite alternate;
+    }
+    .glow-2 {
+      border-color: deeppink;
+      box-shadow: 0 0 12px deeppink;
+      animation: pulse-pink 1.5s infinite alternate;
+    }
+    .glow-3 {
+      border-color: cyan;
+      box-shadow: 0 0 15px cyan;
+      animation: pulse-cyan 1.5s infinite alternate;
+    }
+    @keyframes pulse-gold {
+      from { box-shadow: 0 0 5px gold; }
+      to { box-shadow: 0 0 20px gold; }
+    }
+    @keyframes pulse-pink {
+      from { box-shadow: 0 0 10px deeppink; }
+      to { box-shadow: 0 0 25px deeppink; }
+    }
+    @keyframes pulse-cyan {
+      from { box-shadow: 0 0 10px cyan; }
+      to { box-shadow: 0 0 25px cyan; }
+    }
+    /* Sparkles for ultra rare name */
+    .ultra-rare {
+      position: relative;
+      text-shadow: 0 0 4px #ffb3ff;
+      animation: sparkle 1s infinite alternate;
+    }
+    .ultra-rare::after {
+      content: "✨";
+      position: absolute;
+      top: 0;
+      right: 0;
+      animation: sparkle-float 1s infinite ease-in-out;
+      font-size: 1.2rem;
+      color: #ffb3ff;
+    }
+    @keyframes sparkle {
+      from { box-shadow: 0 0 10px #ffb3ff; }
+      to { box-shadow: 0 0 20px #ffb3ff; }
+    }
+    @keyframes sparkle-float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      50% { transform: translateY(-5px) rotate(10deg); opacity: 0.75; }
+      100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    }
+
+    /* Floating sparkles around whole ultra rare card */
+    .ultra-rare-card {
+      position: relative;
+      overflow: visible;
+    }
+    .ultra-rare-card .sparkles {
+      pointer-events: none;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      border-radius: 1.25rem;
+      animation: sparkle-rotate 6s linear infinite;
+      background: transparent;
+    }
+    .ultra-rare-card .sparkles::before,
+    .ultra-rare-card .sparkles::after {
+      content: '✨';
+      position: absolute;
+      font-size: 1rem;
+      color: #ffb3ff;
+      opacity: 0.7;
+      animation: sparkle-float 3s ease-in-out infinite;
+    }
+    .ultra-rare-card .sparkles::before {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .ultra-rare-card .sparkles::after {
+      bottom: 15%;
+      right: 15%;
+      animation-delay: 1.5s;
+    }
+    @keyframes sparkle-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Sparkle burst animation on pull */
+    .sparkle-burst {
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, #ffb3ff 20%, transparent 80%);
+      animation: burst-fade 1s forwards;
+      z-index: 10;
+      filter: drop-shadow(0 0 8px #ffb3ff);
+      opacity: 0;
+    }
+    @keyframes burst-fade {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+    }
+
+    .gacha-card img { width: 100%; border-radius: 0.75rem; }
+    .gacha-card .name { margin-top: 0.5rem; font-weight: 600; }
+    .stars { margin-top: 0.25rem; font-size: 0.9rem; color: #ffbf00; }
+    .plus-one {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #f00;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 2px 6px;
+      border-radius: 50%;
+      animation: bounce 0.5s ease-out;
+    }
+    @keyframes bounce {
+      0% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+  </style>
+</head>
+<body>
+  <h1>Trivia Gacha Game</h1>
+  <div id="scoreboard">Points: <span id="points">0</span></div>
+  <div id="trivia-screen" class="screen active">
+    <h2>Answer This!</h2>
+    <div id="question"></div>
+    <div id="answers"></div>
+  </div>
+  <div id="gacha-screen" class="screen">
+    <h2>Gacha Pull</h2>
+    <button id="pull-btn">🎁 Single Pull (5 points)</button>
+    <button id="multi-pull-btn">🔮 Multi Pull x10 (50 points)</button>
+    <div id="gacha-result"></div>
+  </div>
+  <div id="collection-screen" class="screen">
+    <h2>Your Collection</h2>
+    <select id="rarity-filter">
+      <option value="all">All</option>
+      <option value="Common">Common</option>
+      <option value="Rare">Rare</option>
+      <option value="Ultra Rare">Ultra Rare</option>
+    </select>
+    <div id="collection"></div>
+  </div>
+  <div>
+    <button id="to-trivia">🔍 Trivia</button>
+    <button id="to-gacha">🎲 Gacha</button>
+    <button id="to-collection">📦 Collection</button>
+  </div>
+  <audio id="pull-sound" src="https://freesound.org/data/previews/341/341695_6261196-lq.mp3"></audio>
+  <audio id="ultra-rare-sound" src="https://freesound.org/data/previews/331/331912_3248244-lq.mp3"></audio>
+  <script>
+    const trivia = [
+      { question: "What is the capital of France?", answers: ["Paris", "London", "Berlin", "Rome"], correct: "Paris" },
+      { question: "What’s 5 + 7?", answers: ["10", "12", "14", "11"], correct: "12" }
+    ];
+
+    const gachaPool = [
+      { name: "Common Character", rarity: "Common", weight: 70, image: "https://via.placeholder.com/200x200.png?text=Common" },
+      { name: "Rare Character", rarity: "Rare", weight: 25, image: "https://via.placeholder.com/200x200.png?text=Rare" },
+      { name: "Ultra Rare Character", rarity: "Ultra Rare", weight: 5, image: "https://via.placeholder.com/200x200.png?text=Ultra+Rare" }
+    ];
+
+    let currentQuestion = 0;
+    let points = 0;
+    const collection = [];
+    const pointsDisplay = document.getElementById("points");
+    const questionDiv = document.getElementById("question");
+    const answersDiv = document.getElementById("answers");
+    const gachaResultDiv = document.getElementById("gacha-result");
+    const collectionDiv = document.getElementById("collection");
+    const pullSound = document.getElementById("pull-sound");
+    const ultraRareSound = document.getElementById("ultra-rare-sound");
+
+    function showQuestion() {
+      const q = trivia[currentQuestion];
+      questionDiv.textContent = q.question;
+      answersDiv.innerHTML = "";
+      q.answers.forEach(answer => {
+        const btn = document.createElement("button");
+        btn.textContent = answer;
+        btn.onclick = () => {
+          if (answer === q.correct) points += 3;
+          else points = Math.max(0, points - 1);
+          pointsDisplay.textContent = points;
+          currentQuestion = (currentQuestion + 1) % trivia.length;
+          showQuestion();
+        };
+        answersDiv.appendChild(btn);
+      });
+    }
+
+    function weightedRandom(pool) {
+      const total = pool.reduce((sum, item) => sum + item.weight, 0);
+      let rnd = Math.random() * total;
+      for (const item of pool) {
+        if (rnd < item.weight) return item;
+        rnd -= item.weight;
+      }
+    }
+
+    function addToCollection(pull) {
+      const found = collection.find(c => c.name === pull.name);
+      if (found) {
+        found.duplicates = (found.duplicates || 0) + 1;
+        if (found.duplicates <= 3) found.glow = found.duplicates;
+        else points += 5;
+      } else {
+        const baseStars = pull.rarity === "Common" ? 3 : pull.rarity === "Rare" ? 4 : 5;
+        collection.push({ ...pull, stars: baseStars, glow: 0, duplicates: 0 });
+      }
+      updateCollectionDisplay();
+    }
+
+    function updateCollectionDisplay() {
+      const filter = document.getElementById("rarity-filter").value;
+      collectionDiv.innerHTML = "";
+      collection.filter(item => filter === "all" || item.rarity === filter).forEach(item => {
+        const card = document.createElement("div");
+        card.className = `gacha-card glow-${item.glow || 0}`;
+        if (item.rarity === "Ultra Rare") {
+          card.classList.add("ultra-rare-card");
+          // Add sparkles container
+          const sparkleDiv = document.createElement("div");
+          sparkleDiv.className = "sparkles";
+          card.appendChild(sparkleDiv);
+        }
+        const img = document.createElement("img");
+        img.src = item.image;
+        const name = document.createElement("div");
+        name.className = `name ${item.rarity.toLowerCase().replace(/ /g, '-')}`;
+        name.textContent = `${item.rarity}: ${item.name}`;
+        const stars = document.createElement("div");
+        stars.className = "stars";
+        stars.textContent = "★".repeat(item.stars);
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(stars);
+        collectionDiv.appendChild(card);
+      });
+    }
+
+    function sparkleBurst(card) {
+      const burst = document.createElement("div");
+      burst.className = "sparkle-burst";
+      card.appendChild(burst);
+      setTimeout(() => {
+        burst.remove();
+      }, 1000);
+    }
+
+    function displayPull(pull) {
+      const card = document.createElement("div");
+      card.className = "gacha-card";
+      if (pull.rarity === "Ultra Rare") {
+        card.classList.add("ultra-rare-card");
+        const sparkleDiv = document.createElement("div");
+        sparkleDiv.className = "sparkles";
+        card.appendChild(sparkleDiv);
+      }
+      const img = document.createElement("img");
+      img.src = pull.image;
+      const name = document.createElement("div");
+      name.className = `name ${pull.rarity.toLowerCase().replace(/ /g, '-')}`;
+      name.textContent = `${pull.rarity}: ${pull.name}`;
+      const plusOne = document.createElement("div");
+      plusOne.className = "plus-one";
+      plusOne.textContent = "+1";
+      card.appendChild(img);
+      card.appendChild(name);
+      card.appendChild(plusOne);
+      gachaResultDiv.appendChild(card);
+
+      // Play sounds
+      pullSound.play();
+      if (pull.rarity === "Ultra Rare") {
+        ultraRareSound.play();
+        sparkleBurst(card);
+      }
+
+      addToCollection(pull);
+    }
+
+    function performPulls(count) {
+      gachaResultDiv.innerHTML = "";
+      for (let i = 0; i < count; i++) displayPull(weightedRandom(gachaPool));
+    }
+
+    document.getElementById("pull-btn").onclick = () => {
+      if (points >= 5) {
+        points -= 5;
+        pointsDisplay.textContent = points;
+        performPulls(1);
+      } else gachaResultDiv.innerHTML = "<p>Not enough points!</p>";
+    };
+
+    document.getElementById("multi-pull-btn").onclick = () => {
+      if (points >= 50) {
+        points -= 50;
+        pointsDisplay.textContent = points;
+        performPulls(10);
+      } else gachaResultDiv.innerHTML = "<p>Not enough points for a multi-pull!</p>";
+    };
+
+    document.getElementById("to-trivia").onclick = () => switchScreen("trivia-screen");
+    document.getElementById("to-gacha").onclick = () => switchScreen("gacha-screen");
+    document.getElementById("to-collection").onclick = () => switchScreen("collection-screen");
+
+    function switchScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    document.getElementById("rarity-filter").onchange = updateCollectionDisplay;
+
+    showQuestion();
+  </script>
+</body>
+</html>
