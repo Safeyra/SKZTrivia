@@ -1,7 +1,51 @@
 const trivia = [
-  { question: "What is the capital of France?", answers: ["Paris", "London", "Berlin", "Rome"], correct: "Paris" },
-  { question: "What’s 5 + 7?", answers: ["10", "12", "14", "11"], correct: "12" }
+  {
+    question: "What is the name of Stray Kids' debut album?",
+    answers: ["I Am NOT", "Clé 1: MIROH", "Go Live", "IN LIFE"],
+    correct: "I Am NOT"
+  },
+  {
+    question: "Who is the leader of Stray Kids?",
+    answers: ["Bang Chan", "Lee Know", "Changbin", "Hyunjin"],
+    correct: "Bang Chan"
+  },
+  {
+    question: "Which member is known for his unique deep voice and dancing skills?",
+    answers: ["Felix", "Han", "Seungmin", "I.N"],
+    correct: "Felix"
+  },
+  {
+    question: "What does the name 'Stray Kids' signify?",
+    answers: [
+      "Lost children finding their way",
+      "Kids who stray from school",
+      "A stray dog mascot",
+      "A fantasy story"
+    ],
+    correct: "Lost children finding their way"
+  },
+  {
+    question: "Which Stray Kids member is the main producer and composer?",
+    answers: ["Bang Chan", "Changbin", "Han", "Hyunjin"],
+    correct: "Bang Chan"
+  },
+  {
+    question: "What year did Stray Kids officially debut?",
+    answers: ["2017", "2018", "2016", "2019"],
+    correct: "2018"
+  },
+  {
+    question: "Which of these songs is NOT a Stray Kids title track?",
+    answers: ["God's Menu", "Back Door", "Miroh", "Ddu-Du Ddu-Du"],
+    correct: "Ddu-Du Ddu-Du"
+  },
+  {
+    question: "Which member’s stage name is 'Lee Know'?",
+    answers: ["Minho", "Seungmin", "I.N", "Changbin"],
+    correct: "Minho"
+  }
 ];
+
 
 const gachaPool = [
   // Each character has 3 rarities with different images
